@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: tekton-pipelines
+  namespace: tekton-pipelines
+spec:
+  releaseName: tekton-pipelines
+  interval: 5m
+  chart:
+    spec:
+      chart: tekton-pipeline
+      version: 1.6.1
+      sourceRef:
+        kind: HelmRepository
+        name: tekton-cdf
+        namespace: flux-system
+  values: {}
